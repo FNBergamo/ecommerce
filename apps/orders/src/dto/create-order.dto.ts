@@ -73,6 +73,10 @@ export class CreateOrderDto {
   @Min(0)
   totalAmount: number;
 
+  @IsString()
+  @IsNotEmpty()
+  status: string;
+
   @ValidateNested()
   @Type(() => ShippingAddressDto)
   shippingAddress: ShippingAddressDto;
