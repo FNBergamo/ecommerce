@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { OrdersService } from './orders.service';
 import { OrdersController } from './orders.controller';
-import { DatabaseModule } from '@app/common';
+import { DatabaseModule, LoggerModule } from '@app/common';
 import { OrdersRepository } from './orders.repository';
 import { OrderDocument, OrderSchema } from './modules/order.schema';
 
@@ -14,6 +14,7 @@ import { OrderDocument, OrderSchema } from './modules/order.schema';
         schema: OrderSchema,
       },
     ]),
+    LoggerModule,
   ],
   controllers: [OrdersController],
   providers: [OrdersService, OrdersRepository],
